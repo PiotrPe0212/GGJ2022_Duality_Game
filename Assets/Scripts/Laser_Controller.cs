@@ -13,7 +13,7 @@ public class Laser_Controller : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+
     void FixedUpdate()
     {
        

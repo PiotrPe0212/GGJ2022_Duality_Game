@@ -6,8 +6,8 @@ public class Emission_Effect : MonoBehaviour
 {
 
     [SerializeField] private GameObject lightBeam;
+    // if beamsNumber*beamsRotation <360 then beamsNumber =beamsnumber+1    
     [SerializeField] private int beamsNumber = 8;
-    [SerializeField] private float areaInDegrees = 360;
     [SerializeField] private float beamRotation = 45;
    private bool activated;
     private float hitDirection;
@@ -19,7 +19,6 @@ public class Emission_Effect : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         activated = false;
@@ -28,7 +27,6 @@ public class Emission_Effect : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         hitDirection = collision.transform.eulerAngles.z;
-        Debug.Log(hitDirection);
         if (activated) return;
         activated = true;
         emissionFunction();

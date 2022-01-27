@@ -19,7 +19,7 @@ public class Player2_Controller : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
         horizontalValue = Input.GetAxis("Horizontal2");
@@ -37,7 +37,7 @@ public class Player2_Controller : MonoBehaviour
             transform.Translate(Vector3.right * Time.deltaTime * horizontalValue * speed);
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(laserBeam,
                  new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1, 0),

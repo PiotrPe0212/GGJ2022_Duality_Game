@@ -20,7 +20,7 @@ public class Player1_Controller : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         horizontalValue = Input.GetAxis("Horizontal1");
@@ -38,11 +38,13 @@ public class Player1_Controller : MonoBehaviour
             transform.Translate(Vector3.right * Time.deltaTime * horizontalValue * speed);
         }
 
-        if (Input.GetKeyDown(KeyCode.RightControl))
+        if (Input.GetKey(KeyCode.RightControl))
         {
             Instantiate(laserBeam, 
                 new Vector3 (gameObject.transform.position.x, gameObject.transform.position.y+1, 0),
                 laserBeam.transform.rotation);
+            
+           
         }
     }
 
@@ -52,6 +54,7 @@ public class Player1_Controller : MonoBehaviour
         {
             afterHitFunction();
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)

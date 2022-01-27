@@ -6,14 +6,14 @@ public class Boxes_Generator : MonoBehaviour
 {
     [SerializeField] private GameObject[] boxesTypeArr;
     [SerializeField] private float timeToSpawn = 3;
-    // Start is called before the first frame update
+ 
     void Start()
     {
        
-        InvokeRepeating("NewBox", 3, timeToSpawn);
+        InvokeRepeating("NewBox", 3, Random.Range(0.8f, 2.8f));
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         
