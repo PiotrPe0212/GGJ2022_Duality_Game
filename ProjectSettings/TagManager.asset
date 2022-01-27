@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3461253509
+    locked: 0
+  - name: BackgroundElements
+    uniqueID: 843831225
+    locked: 0
+  - name: Conveyors
+    uniqueID: 3138879913
+    locked: 0
+  - name: Boxes/Players
+    uniqueID: 3957244519
+    locked: 0
+  - name: Shot
+    uniqueID: 2621181945
+    locked: 0

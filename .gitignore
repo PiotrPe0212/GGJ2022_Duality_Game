@@ -4,3 +4,7 @@ Unity.Mathematics.csproj
 *.vsconfig
 GGJ2022.sln
 *.csproj
+.vs
+Temp
+GGJ2022_Duality_Game.sln
+obj
