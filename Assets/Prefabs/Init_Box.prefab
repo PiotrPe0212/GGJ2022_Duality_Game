@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7505044465737824619}
   - component: {fileID: 7505044465737824618}
   - component: {fileID: 3782691724076466691}
+  - component: {fileID: -7541489221701306889}
   m_Layer: 0
   m_Name: Init_Box
-  m_TagString: Untagged
+  m_TagString: Reflect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +94,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -109,3 +110,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-7541489221701306889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7505044465737824617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b73636af8f2b8439ca147aa4774894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  border: 11

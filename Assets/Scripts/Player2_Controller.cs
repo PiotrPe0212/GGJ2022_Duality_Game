@@ -41,7 +41,7 @@ public class Player2_Controller : MonoBehaviour
         {
             Instantiate(laserBeam,
                  new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1, 0),
-                new Quaternion(laserBeam.transform.rotation.x, laserBeam.transform.rotation.y, laserBeam.transform.rotation.z+180, laserBeam.transform.rotation.w));
+                 Quaternion.Euler(Vector3.forward*180));
         }
     }
 
@@ -55,7 +55,6 @@ public class Player2_Controller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Playerhit");
         hit = true;
     }
 

@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 8376006111183742117}
   - component: {fileID: 8376006111183742116}
   - component: {fileID: 2910478847275737037}
+  - component: {fileID: 6106829728528092058}
+  - component: {fileID: -3780409299289666357}
   m_Layer: 0
   m_Name: Init_Box3
-  m_TagString: Untagged
+  m_TagString: Stop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +111,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6106829728528092058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8376006111183742119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b73636af8f2b8439ca147aa4774894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  border: 11
+--- !u!114 &-3780409299289666357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8376006111183742119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8698ff0d9e800b540ae368d996550566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightBeam: {fileID: 1393627422230770120, guid: 69de81ab6dc91aa46ac053ff1cd0e4fd, type: 3}
+  beamsNumber: 8
+  areaInDegrees: 360
+  beamRotation: 45
