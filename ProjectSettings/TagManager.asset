@@ -62,3 +62,6 @@ TagManager:
   - name: Shot
     uniqueID: 2621181945
     locked: 0
+  - name: Menu
+    uniqueID: 3546253153
+    locked: 0

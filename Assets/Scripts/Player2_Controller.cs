@@ -1,19 +1,38 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player2_Controller : MonoBehaviour
 {
+
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private int speed = 10;
     [SerializeField] private float border = 5.5f;
     [SerializeField] private GameObject laserBeam;
     private float verticalValue;
     private bool hit;
+    public static float initialHealth = 1;
+    public static float healthLoose = 0.1f;
+    private float playerHealth;
+
     SpriteRenderer playerColor;
     UnityEngine.Color initColor;
+
+    public event Action HealthLoose;
+
+    private void Awake()
+    {
+        gameManager.ResetParameters += resetParameters;
+    }
+
+    private void OnDestroy()
+    {
+        gameManager.ResetParameters -= resetParameters;
+    }
     void Start()
     {
-        hit = false;
+        resetParameters();
         playerColor = GetComponent<SpriteRenderer>();
         initColor = playerColor.color;
 
@@ -50,6 +69,8 @@ public class Player2_Controller : MonoBehaviour
         if (hit)
         {
             afterHitFunction();
+            HealthFunction();
+            hit = false;
         }
     }
 
@@ -71,7 +92,18 @@ public class Player2_Controller : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         playerColor.color = initColor;
+    }
+
+    private void HealthFunction()
+    {
+        playerHealth -= healthLoose;
+        HealthLoose();
+    }
+
+    void resetParameters()
+    {
         hit = false;
+        playerHealth = initialHealth;
     }
 
 }

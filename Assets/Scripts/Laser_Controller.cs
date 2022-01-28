@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Laser_Controller : MonoBehaviour
 {
+   
     [SerializeField] private int speed = 15;
     [SerializeField] private float border = 11.0f;
-    private bool isReflected;
+
+
     void Start()
     {
-        isReflected = false;
         
     }
 
@@ -24,6 +25,11 @@ public class Laser_Controller : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    private void Update()
+    {
+        if(Time.timeScale ==0) Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
