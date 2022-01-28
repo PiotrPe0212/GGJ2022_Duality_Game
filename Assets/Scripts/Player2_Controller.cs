@@ -104,6 +104,7 @@ public class Player2_Controller : MonoBehaviour
     {
         hit = false;
         playerHealth = initialHealth;
+        gameObject.transform.position = new Vector3(11.85f, 0, 0);
     }
 
 }

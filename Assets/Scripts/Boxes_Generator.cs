@@ -13,11 +13,6 @@ public class Boxes_Generator : MonoBehaviour
         InvokeRepeating("NewBox", 3, Random.Range(2.1f, 4.2f));
     }
 
-   
-    void Update()
-    {
-        
-    }
 
     void NewBox()
     {
