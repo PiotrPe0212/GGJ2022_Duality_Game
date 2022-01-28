@@ -53,6 +53,9 @@ TagManager:
   - name: Conveyors
     uniqueID: 3138879913
     locked: 0
+  - name: Conveyor_Upper
+    uniqueID: 4100476449
+    locked: 0
   - name: Boxes/Players
     uniqueID: 3957244519
     locked: 0

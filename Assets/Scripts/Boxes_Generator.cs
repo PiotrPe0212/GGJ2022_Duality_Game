@@ -10,7 +10,7 @@ public class Boxes_Generator : MonoBehaviour
     void Start()
     {
        
-        InvokeRepeating("NewBox", 3, Random.Range(0.8f, 2.8f));
+        InvokeRepeating("NewBox", 3, Random.Range(2.1f, 4.2f));
     }
 
    
@@ -22,9 +22,9 @@ public class Boxes_Generator : MonoBehaviour
     void NewBox()
     {
         int boxNumber = Random.Range(0, boxesTypeArr.Length);
-        float yBoxPos = Random.Range(-0.5f, 0.5f);
+        float xBoxPos = Random.Range(-0.5f, 0.5f);
         Instantiate(boxesTypeArr[boxNumber], 
-            new Vector3( gameObject.transform.position.x -12, gameObject.transform.position.y + yBoxPos, 0),
-            gameObject.transform.rotation);
+            new Vector3( gameObject.transform.position.x + xBoxPos, gameObject.transform.position.y +7, 0),
+            Quaternion.Euler(Vector3.zero));
     }
 }

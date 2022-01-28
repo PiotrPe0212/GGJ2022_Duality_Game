@@ -39,12 +39,12 @@ public class Emission_Effect : MonoBehaviour
         float Ypos;
         for (int i = 0; i < beamsNumber; i++)
         {
-            totalAngle = hitDirection + 45 - i * beamRotation;
-            Xpos = -1.2f * Mathf.Sin(totalAngle * Mathf.Deg2Rad);
-            Ypos = 1.2f * Mathf.Cos(totalAngle * Mathf.Deg2Rad);
+            totalAngle = hitDirection + 60 - i * beamRotation;
+            Xpos = 1.2f * Mathf.Sin(totalAngle * Mathf.Deg2Rad);
+            Ypos = -1.2f * Mathf.Cos(totalAngle * Mathf.Deg2Rad);
 
             Instantiate(lightBeam,
-               new Vector3(transform.position.x + Xpos + 0.2f, transform.position.y + Ypos, transform.position.z),
+               new Vector3(transform.position.x + Xpos , transform.position.y + Ypos - 0.2f, transform.position.z),
                Quaternion.Euler(Vector3.forward * totalAngle));
 
         }

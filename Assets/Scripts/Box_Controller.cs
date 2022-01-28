@@ -5,7 +5,7 @@ using UnityEngine;
 public class Box_Controller : MonoBehaviour
 {
     [SerializeField] private int speed = 5;
-    [SerializeField] private float border = 11.0f;
+    [SerializeField] private float border = -7f;
 
     void Start()
     {
@@ -14,8 +14,8 @@ public class Box_Controller : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.Translate(Vector3.right * Time.deltaTime * speed);
-        if (transform.position.x > border)
+        transform.Translate(Vector3.down * Time.deltaTime * speed);
+        if (transform.position.y > border)
         {
             Destroy(gameObject);
         }

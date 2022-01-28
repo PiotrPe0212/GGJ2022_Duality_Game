@@ -5,9 +5,9 @@ using UnityEngine;
 public class Player2_Controller : MonoBehaviour
 {
     [SerializeField] private int speed = 10;
-    [SerializeField] private float border = 9.5f;
+    [SerializeField] private float border = 5.5f;
     [SerializeField] private GameObject laserBeam;
-    private float horizontalValue;
+    private float verticalValue;
     private bool hit;
     SpriteRenderer playerColor;
     UnityEngine.Color initColor;
@@ -22,25 +22,25 @@ public class Player2_Controller : MonoBehaviour
   
     void Update()
     {
-        horizontalValue = Input.GetAxis("Horizontal2");
+        verticalValue = Input.GetAxis("Vertical2");
 
-        if (transform.position.x > border)
+        if (transform.position.y > border)
         {
-            transform.position = new Vector3(border, transform.position.y, 0);
+            transform.position = new Vector3(transform.position.x, border, 0);
         }
-        else if (transform.position.x < -border)
+        else if (transform.position.y < -border)
         {
-            transform.position = new Vector3(-border, transform.position.y, 0);
+            transform.position = new Vector3(transform.position.x, -border, 0);
         }
         else
         {
-            transform.Translate(Vector3.right * Time.deltaTime * horizontalValue * speed);
+            transform.Translate(Vector3.up * Time.deltaTime * verticalValue * speed);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(laserBeam,
-                 new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1, 0),
+                 new Vector3(gameObject.transform.position.x-1, gameObject.transform.position.y, 0),
                  Quaternion.Euler(Vector3.forward*180));
         }
     }

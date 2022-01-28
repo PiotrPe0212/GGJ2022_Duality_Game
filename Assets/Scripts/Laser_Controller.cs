@@ -17,7 +17,7 @@ public class Laser_Controller : MonoBehaviour
     void FixedUpdate()
     {
        
-        transform.Translate(Vector3.up * Time.deltaTime * speed);
+        transform.Translate(Vector3.right * Time.deltaTime * speed);
 
         if (transform.position.y > border || transform.position.y < -border)
         {
@@ -42,9 +42,12 @@ public class Laser_Controller : MonoBehaviour
         }
         if(other.tag == "Break")
         {
+           
             float refractionAngle = Random.Range(-60, 60);
-        transform.rotation = Quaternion.Euler(Vector3.forward *refractionAngle);
-
+            if (transform.rotation.z == 0)
+                transform.rotation = Quaternion.Euler(Vector3.forward *refractionAngle);
+            else
+                transform.rotation = Quaternion.Euler(Vector3.forward * (180+refractionAngle));
         }
 
     }
