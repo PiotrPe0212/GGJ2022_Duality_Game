@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject EndPanel;
     [SerializeField] private GameObject leftWin;
     [SerializeField] private GameObject rightWin;
+     private AudioSource themeSong;
     private int gameState;
     private float Player1Health;
     private float Player2Health;
@@ -47,9 +48,12 @@ public class GameManager : MonoBehaviour
  
     void Start()
     {
+        themeSong = gameObject.GetComponent<AudioSource>();
+        healthLooseStep = Player1_Controller.healthLoose;
+
         // 0 -menu, 1- game, 2-endPanel;
         switchState(0);
-        healthLooseStep = Player1_Controller.healthLoose;
+
 
     }
 
@@ -100,6 +104,7 @@ public class GameManager : MonoBehaviour
             case 0:
                 gameState = 0;
                 Time.timeScale = 0;
+                themeSong.Stop();
                 MenuPanel.SetActive(true);
                 EndPanel.SetActive(false);
                 resetFunction();
@@ -107,12 +112,15 @@ public class GameManager : MonoBehaviour
             case 1:
                 gameState = 1;
                 Time.timeScale = 1;
+                themeSong.Play();
                 MenuPanel.SetActive(false);
                 EndPanel.SetActive(false);
+                
                 break;
             case 2:
                 gameState = 2;
                 Time.timeScale = 0;
+                themeSong.Stop();
                 MenuPanel.SetActive(false);
                 EndPanel.SetActive(true);
                 resetFunction();
@@ -120,6 +128,7 @@ public class GameManager : MonoBehaviour
             default:
                 gameState = 0;
                 Time.timeScale = 0;
+                themeSong.Stop();
                 MenuPanel.SetActive(true);
                 EndPanel.SetActive(false);
                 resetFunction();

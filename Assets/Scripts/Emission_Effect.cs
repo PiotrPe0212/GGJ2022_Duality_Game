@@ -11,10 +11,17 @@ public class Emission_Effect : MonoBehaviour
     [SerializeField] private float beamRotation = 45;
    private bool activated;
     private float hitDirection;
+    private UnityEngine.Color[] colorsArray = new UnityEngine.Color [5];
 
     void Start()
     {
         activated = false;
+        colorsArray[0] = Color.red;
+        colorsArray[1] = Color.yellow;
+        colorsArray[2] = Color.green;
+        colorsArray[3] = Color.blue;
+        colorsArray[4] = Color.magenta;
+       
        
         
     }
@@ -43,11 +50,15 @@ public class Emission_Effect : MonoBehaviour
             Xpos = 1.2f * Mathf.Sin(totalAngle * Mathf.Deg2Rad);
             Ypos = -1.2f * Mathf.Cos(totalAngle * Mathf.Deg2Rad);
 
-            Instantiate(lightBeam,
+            GameObject beam = Instantiate(lightBeam,
                new Vector3(transform.position.x + Xpos , transform.position.y + Ypos - 0.2f, transform.position.z),
                Quaternion.Euler(Vector3.forward * totalAngle));
 
+           if(beamsNumber == colorsArray.Length)
+            beam.GetComponent<SpriteRenderer>().color = colorsArray[i];
         }
         activated = true;
     }
+
+    
 }

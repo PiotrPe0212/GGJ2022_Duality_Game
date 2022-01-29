@@ -10,10 +10,11 @@ public class Player1_Controller : MonoBehaviour
     [SerializeField] private int speed = 10;
     [SerializeField] private float border = 5.5f;
     [SerializeField] private GameObject laserBeam;
+    private AudioSource laserSound;
     public float verticalValue;
     private bool hit;
     public static float initialHealth = 1;
-    public static float healthLoose = 0.1f;
+    public static float healthLoose = 0.05f;
     private float playerHealth;
 
     SpriteRenderer playerColor;
@@ -35,6 +36,7 @@ public class Player1_Controller : MonoBehaviour
     {
         resetParameters();
         playerColor = GetComponent<SpriteRenderer>();
+        laserSound = gameObject.GetComponent<AudioSource>();
         initColor = playerColor.color;
 
     }
@@ -42,29 +44,32 @@ public class Player1_Controller : MonoBehaviour
 
     void Update()
     {
-        verticalValue = Input.GetAxis("Vertical2");
+        if(Time.timeScale != 0)
+        {
+            verticalValue = Input.GetAxis("Vertical2");
 
-        if (transform.position.y > border )
-        {
-            transform.position = new Vector3( transform.position.x, border, 0);
-        }
-        else if(transform.position.y < -border)
-        {
-            transform.position = new Vector3(transform.position.x, -border,  0);
-        }
-        else 
-        { 
-            transform.Translate(Vector3.up * Time.deltaTime * verticalValue * speed);
-        }
+            if (transform.position.y > border)
+            {
+                transform.position = new Vector3(transform.position.x, border, 0);
+            }
+            else if (transform.position.y < -border)
+            {
+                transform.position = new Vector3(transform.position.x, -border, 0);
+            }
+            else
+            {
+                transform.Translate(Vector3.up * Time.deltaTime * verticalValue * speed);
+            }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            Instantiate(laserBeam, 
-                new Vector3 (gameObject.transform.position.x+1, gameObject.transform.position.y, 0),
-                laserBeam.transform.rotation);
-            
-           
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                Instantiate(laserBeam,
+                    new Vector3(gameObject.transform.position.x + 1, gameObject.transform.position.y + 0.4f, 0),
+                    laserBeam.transform.rotation);
+                laserSound.Play();
+            }
         }
+        
     }
 
     private void FixedUpdate()

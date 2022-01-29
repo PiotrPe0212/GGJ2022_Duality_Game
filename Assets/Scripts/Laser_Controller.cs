@@ -7,11 +7,13 @@ public class Laser_Controller : MonoBehaviour
    
     [SerializeField] private int speed = 15;
     [SerializeField] private float border = 11.0f;
+    private AudioSource explSound;
     private Animator exlosionAnim;
     private bool expBegen = false;
     void Start()
     {
         exlosionAnim = gameObject.GetComponent<Animator>();
+        explSound = gameObject.GetComponent<AudioSource>();
 
 
     }
@@ -69,5 +71,6 @@ public class Laser_Controller : MonoBehaviour
     void ExplosionBegen()
     {
         expBegen = true;
+        explSound.Play();
     }
 }
