@@ -42,7 +42,7 @@ public class Player1_Controller : MonoBehaviour
 
     void Update()
     {
-        verticalValue = Input.GetAxis("Vertical1");
+        verticalValue = Input.GetAxis("Vertical2");
 
         if (transform.position.y > border )
         {
@@ -57,7 +57,7 @@ public class Player1_Controller : MonoBehaviour
             transform.Translate(Vector3.up * Time.deltaTime * verticalValue * speed);
         }
 
-        if (Input.GetKeyDown(KeyCode.RightControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             Instantiate(laserBeam, 
                 new Vector3 (gameObject.transform.position.x+1, gameObject.transform.position.y, 0),
@@ -107,6 +107,6 @@ public class Player1_Controller : MonoBehaviour
     {
         playerHealth = initialHealth;
         hit = false;
-        gameObject.transform.position = new Vector3(-11.85f, 0, 0);
+        gameObject.transform.position = new Vector3(-9.3f, 0, 0);
     }
 }

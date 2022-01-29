@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Player2_Controller player2;
     [SerializeField] private GameObject MenuPanel;
     [SerializeField] private GameObject EndPanel;
+    [SerializeField] private GameObject leftWin;
+    [SerializeField] private GameObject rightWin;
     private int gameState;
     private float Player1Health;
     private float Player2Health;
@@ -20,6 +22,11 @@ public class GameManager : MonoBehaviour
     public void PlayClick()
     {
         switchState(1);
+    }
+
+    public void ExitClick()
+    {
+        Application.Quit();
     }
 
     public void MainMenuCLick()
@@ -51,15 +58,24 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(gameState);
+      
       
          if(gameState == 1)
         {
-            Debug.Log("play");
-            if (Player1Health <= 0 || Player2Health <= 0)
+    
+            if (Player1Health <= 0)
             {
+                rightWin.SetActive(true);
+                leftWin.SetActive(false);
                 switchState(2);
-                Debug.Log("end");
+              
+            }
+
+            if(Player2Health <= 0)
+            {
+                rightWin.SetActive(false);
+                leftWin.SetActive(true);
+                switchState(2);
             }
 
         }

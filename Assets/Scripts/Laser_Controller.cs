@@ -7,22 +7,25 @@ public class Laser_Controller : MonoBehaviour
    
     [SerializeField] private int speed = 15;
     [SerializeField] private float border = 11.0f;
-
-
+    private Animator exlosionAnim;
+    private bool expBegen = false;
     void Start()
     {
-        
+        exlosionAnim = gameObject.GetComponent<Animator>();
+
+
     }
 
 
     void FixedUpdate()
     {
-       
+       if(!expBegen)
         transform.Translate(Vector3.right * Time.deltaTime * speed);
 
         if (transform.position.y > border || transform.position.y < -border)
         {
-            Destroy(gameObject);
+            exlosionAnim.Play("explosion");
+           
         }
 
     }
@@ -36,7 +39,7 @@ public class Laser_Controller : MonoBehaviour
     {
         if (other.tag == "Player" || other.tag == "Stop")
         {
-            Destroy(gameObject);
+            exlosionAnim.Play("explosion");
         }
 
         if (other.tag == "Reflect")
@@ -56,5 +59,15 @@ public class Laser_Controller : MonoBehaviour
                 transform.rotation = Quaternion.Euler(Vector3.forward * (180+refractionAngle));
         }
 
+    }
+
+   void EndOfExpl()
+    {
+        Destroy(gameObject);
+    }
+
+    void ExplosionBegen()
+    {
+        expBegen = true;
     }
 }
