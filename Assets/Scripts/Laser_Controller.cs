@@ -41,7 +41,7 @@ public class Laser_Controller : MonoBehaviour
     {
         if (other.tag == "Player" || other.tag == "Stop")
         {
-            exlosionAnim.Play("explosion");
+            if(exlosionAnim) exlosionAnim.Play("explosion");
         }
 
         if (other.tag == "Reflect")

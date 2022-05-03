@@ -1446,7 +1446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &372319208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3963,6 +3963,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1876014861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876014859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9597c8ac19968664facc1fc26710b80c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layerToDetect:
+    serializedVersion: 2
+    m_Bits: 1
+  laserBeam: {fileID: 1029156673817161094, guid: 11588ad7cd3c16a479611930637d668d, type: 3}
+  laserSound: {fileID: 1876014860}
+  hitLeft: 0
+  hitMid: 0
+  hitRight: 0
 --- !u!114 &1876014863 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1789952387310601890, guid: aec030ef8935a1d46802fadb0b5b5588, type: 3}
