@@ -29,14 +29,13 @@ public class HealthBarsController : MonoBehaviour
         Player2.HealthLoose -= Player2HealthLoos;
         gameManager.ResetParameters -= resetParameters;
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         resetParameters();
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         

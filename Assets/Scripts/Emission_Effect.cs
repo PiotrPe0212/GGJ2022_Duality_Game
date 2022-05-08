@@ -6,7 +6,6 @@ public class Emission_Effect : MonoBehaviour
 {
 
     [SerializeField] private GameObject lightBeam;
-    // if beamsNumber*beamsRotation <360 then beamsNumber =beamsnumber+1    
     [SerializeField] private int beamsNumber = 8;
     [SerializeField] private float beamRotation = 45;
    private bool activated;

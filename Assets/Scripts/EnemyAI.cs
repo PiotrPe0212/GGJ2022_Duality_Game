@@ -28,6 +28,7 @@ public class EnemyAI : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (!GameManager.playVsComputer) return;
         beamPosLeft = new Vector3(gameObject.transform.position.x - 1.5f, gameObject.transform.position.y - 0.2f, 0);
         beamPosMid = new Vector3(gameObject.transform.position.x - 1.5f, gameObject.transform.position.y, 0);
         beamPosRight = new Vector3(gameObject.transform.position.x - 1.5f, gameObject.transform.position.y + 0.2f, 0);

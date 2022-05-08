@@ -5,7 +5,6 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] private Player1_Controller player1;
     [SerializeField] private Player2_Controller player2;
     [SerializeField] private GameObject MenuPanel;
@@ -17,14 +16,25 @@ public class GameManager : MonoBehaviour
     private float Player1Health;
     private float Player2Health;
     private float healthLooseStep;
-
+    public static bool playVsComputer;
 
     public event Action ResetParameters;
     public void PlayClick()
     {
         switchState(1);
+        playVsComputer = false;
     }
 
+    public void PlayClickVsComputer()
+    {
+        switchState(1);
+        playVsComputer = true;
+    }
+
+    public void PlayAgainClick()
+    {
+        switchState(1);
+    }
     public void ExitClick()
     {
         Application.Quit();
@@ -57,9 +67,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-
-
-    // Update is called once per frame
     void FixedUpdate()
     {
       

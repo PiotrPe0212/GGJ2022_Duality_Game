@@ -44,8 +44,8 @@ public class Player1_Controller : MonoBehaviour
 
     void Update()
     {
-        if(Time.timeScale != 0)
-        {
+        if (Time.timeScale == 0) return;
+        
             verticalValue = Input.GetAxis("Vertical2");
 
             if (transform.position.y > border)
@@ -68,18 +68,18 @@ public class Player1_Controller : MonoBehaviour
                     laserBeam.transform.rotation);
                 laserSound.Play();
             }
-        }
+        
         
     }
 
     private void FixedUpdate()
     {
-        if (hit)
-        {
+        if (!hit) return;
+        
             afterHitFunction();
             HealthFunction();
             hit = false;
-        }
+        
 
     }
 

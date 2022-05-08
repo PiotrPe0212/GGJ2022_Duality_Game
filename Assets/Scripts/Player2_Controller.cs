@@ -43,8 +43,9 @@ public class Player2_Controller : MonoBehaviour
   
     void Update()
     {
-        if(Time.timeScale != 0)
-        {
+        if (GameManager.playVsComputer) return;
+        if (Time.timeScale == 0) return;
+        
             verticalValue = Input.GetAxis("Vertical1");
 
             if (transform.position.y > border)
@@ -68,18 +69,18 @@ public class Player2_Controller : MonoBehaviour
                 laserSound.Play();
             }
 
-        }
+        
      
     }
 
     private void FixedUpdate()
     {
-        if (hit)
-        {
+        if (!hit) return;
+        
             afterHitFunction();
             HealthFunction();
             hit = false;
-        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
